@@ -39,7 +39,8 @@ public class BetterRailListener implements Listener {
                         cart.setVelocity(boosted);
                     }
                 } else {
-                    cart.setMaxSpeed(.4D);
+                    double currentSpeed = cart.getVelocity().length();
+                    cart.setMaxSpeed(Math.max(currentSpeed, BASE_MAX_SPEED));
                 }
             }
         }
