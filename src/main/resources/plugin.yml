@@ -1,0 +1,10 @@
+name: BetterRails
+main: com.github.happy66dev.betterrails.BetterRails
+
+author: happy
+description: Adds faster powered rails for vanilla and Slimefun progression.
+website: https://github.com/happy66dev/BetterRails
+
+depend: [Slimefun]
+version: ${project.version}
+api-version: 1.16
