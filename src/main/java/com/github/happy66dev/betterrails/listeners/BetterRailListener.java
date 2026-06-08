@@ -45,7 +45,12 @@ public class BetterRailListener implements Listener {
                         cart.setVelocity(boosted);
                     }
                 } else {
-                    cart.setMaxSpeed(BASE_MAX_SPEED);
+                    double currentSpeed = cart.getVelocity().length();
+                    if (currentSpeed > BASE_MAX_SPEED) {
+                        cart.setMaxSpeed(currentSpeed);
+                    } else {
+                        cart.setMaxSpeed(BASE_MAX_SPEED);
+                    }
                 }
             } else if (PASSIVE_RAILS.contains(type)) {
                 double currentSpeed = cart.getVelocity().length();
