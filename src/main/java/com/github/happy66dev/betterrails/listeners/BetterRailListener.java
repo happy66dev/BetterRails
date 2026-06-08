@@ -11,16 +11,22 @@ import org.bukkit.event.vehicle.VehicleMoveEvent;
 import org.bukkit.util.Vector;
 
 import javax.annotation.Nonnull;
+import java.util.Set;
 
 public class BetterRailListener implements Listener {
     private static final double BASE_MAX_SPEED = 0.4D;
     private static final double BASE_ACCELERATION = 0.1D;
+    private static final Set<Material> PASSIVE_RAILS = Set.of(
+            Material.RAIL, Material.ACTIVATOR_RAIL, Material.DETECTOR_RAIL
+    );
 
     @EventHandler(ignoreCancelled = true)
     private void onRailUse(@Nonnull VehicleMoveEvent e) {
         if (e.getVehicle() instanceof Minecart cart) {
             Block b = cart.getLocation().getBlock();
-            if (b.getType() == Material.POWERED_RAIL) {
+            Material type = b.getType();
+
+            if (type == Material.POWERED_RAIL) {
                 if (StorageCacheUtils.getSfItem(b.getLocation()) instanceof BetterRail rail) {
                     cart.setMaxSpeed(rail.getMaxSpeed());
 
@@ -39,9 +45,11 @@ public class BetterRailListener implements Listener {
                         cart.setVelocity(boosted);
                     }
                 } else {
-                    double currentSpeed = cart.getVelocity().length();
-                    cart.setMaxSpeed(Math.max(currentSpeed, BASE_MAX_SPEED));
+                    cart.setMaxSpeed(BASE_MAX_SPEED);
                 }
+            } else if (PASSIVE_RAILS.contains(type)) {
+                double currentSpeed = cart.getVelocity().length();
+                cart.setMaxSpeed(Math.max(currentSpeed, BASE_MAX_SPEED));
             }
         }
     }
