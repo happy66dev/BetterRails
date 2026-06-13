@@ -27,30 +27,39 @@ public class BetterRailListener implements Listener {
             Material type = b.getType();
 
             if (type == Material.POWERED_RAIL) {
+                boolean powered = b.getBlockPower() > 0 || b.isBlockIndirectlyPowered();
+
                 if (StorageCacheUtils.getSfItem(b.getLocation()) instanceof BetterRail rail) {
-                    cart.setMaxSpeed(rail.getMaxSpeed());
+                    if (powered) {
+                        cart.setMaxSpeed(rail.getMaxSpeed());
 
-                    double tier = rail.getMaxSpeed() / BASE_MAX_SPEED;
-                    Vector velocity = cart.getVelocity();
+                        double tier = rail.getMaxSpeed() / BASE_MAX_SPEED;
+                        Vector velocity = cart.getVelocity();
 
-                    if (velocity.lengthSquared() > 0.0001D) {
-                        Vector direction = velocity.normalize();
-                        double extraAccel = (tier - 1.0D) * BASE_ACCELERATION;
-                        Vector boosted = velocity.add(direction.multiply(extraAccel));
+                        if (velocity.lengthSquared() > 0.0001D) {
+                            Vector direction = velocity.normalize();
+                            double extraAccel = (tier - 1.0D) * BASE_ACCELERATION;
+                            Vector boosted = velocity.add(direction.multiply(extraAccel));
 
-                        if (boosted.length() > rail.getMaxSpeed()) {
-                            boosted = boosted.normalize().multiply(rail.getMaxSpeed());
+                            if (boosted.length() > rail.getMaxSpeed()) {
+                                boosted = boosted.normalize().multiply(rail.getMaxSpeed());
+                            }
+
+                            cart.setVelocity(boosted);
                         }
-
-                        cart.setVelocity(boosted);
+                    } else {
+                        double currentSpeed = cart.getVelocity().length();
+                        cart.setMaxSpeed(Math.max(currentSpeed, BASE_MAX_SPEED));
                     }
-                } else {
+                } else if (powered) {
                     double currentSpeed = cart.getVelocity().length();
                     if (currentSpeed > BASE_MAX_SPEED) {
                         cart.setMaxSpeed(currentSpeed);
                     } else {
                         cart.setMaxSpeed(BASE_MAX_SPEED);
                     }
+                } else {
+                    cart.setMaxSpeed(BASE_MAX_SPEED);
                 }
             } else if (PASSIVE_RAILS.contains(type)) {
                 double currentSpeed = cart.getVelocity().length();
