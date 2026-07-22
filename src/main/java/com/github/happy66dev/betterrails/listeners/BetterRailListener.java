@@ -14,7 +14,6 @@ import javax.annotation.Nonnull;
 
 public class BetterRailListener implements Listener {
     private static final double BASE_MAX_SPEED = 0.4D;
-    private static final double BASE_ACCELERATION = 0.1D;
 
     @EventHandler(ignoreCancelled = true)
     private void onRailUse(@Nonnull VehicleMoveEvent e) {
@@ -26,16 +25,17 @@ public class BetterRailListener implements Listener {
                     boolean powered = b.getBlockPower() > 0 || b.isBlockIndirectlyPowered();
 
                     if (powered) {
+                        // 设置矿车最大速度上限喵~
                         cart.setMaxSpeed(rail.getMaxSpeed());
 
-                        double tier = rail.getMaxSpeed() / BASE_MAX_SPEED;
                         Vector velocity = cart.getVelocity();
 
                         if (velocity.lengthSquared() > 0.0001D) {
-                            Vector direction = velocity.normalize();
-                            double extraAccel = (tier - 1.0D) * BASE_ACCELERATION;
-                            Vector boosted = velocity.add(direction.multiply(extraAccel));
+                            // 获取方向并施加铁轨定义的额外加速度喵~
+                            Vector direction = velocity.clone().normalize();
+                            Vector boosted = velocity.add(direction.multiply(rail.getExtraAccel()));
 
+                            // 钳位到maxSpeed喵~
                             if (boosted.length() > rail.getMaxSpeed()) {
                                 boosted = boosted.normalize().multiply(rail.getMaxSpeed());
                             }
@@ -43,10 +43,12 @@ public class BetterRailListener implements Listener {
                             cart.setVelocity(boosted);
                         }
                     } else {
+                        // 无红石：平滑减速喵~
                         double currentSpeed = cart.getVelocity().length();
                         cart.setMaxSpeed(Math.max(currentSpeed, BASE_MAX_SPEED));
                     }
                 } else {
+                    // 普通动力铁轨：恢复原版速度上限喵~
                     cart.setMaxSpeed(BASE_MAX_SPEED);
                 }
             }

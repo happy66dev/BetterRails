@@ -17,42 +17,42 @@ final class ItemSetup {
 
         initialised = true;
 
-        // 铜质动力铁轨：0.5倍速，maxSpeed = 0.5 * 0.4 = 0.2 喵~
-        registerVanilla(Items.COPPER_POWERED_RAIL, new ItemStack(Material.COPPER_INGOT), 0.2D);
-        // 铁质动力铁轨：0.8倍速，maxSpeed = 0.8 * 0.4 = 0.32 喵~
-        registerVanilla(Items.IRON_POWERED_RAIL, new ItemStack(Material.IRON_INGOT), 0.32D);
-        // 金质动力铁轨：1.1倍速，maxSpeed = 1.1 * 0.4 = 0.44 喵~
-        registerVanilla(Items.GOLD_POWERED_RAIL, new ItemStack(Material.GOLD_INGOT), 0.44D);
-        // 钻石动力铁轨：3倍速，maxSpeed = 3 * 0.4 = 1.2 喵~
-        registerVanilla(Items.DIAMOND_POWERED_RAIL, new ItemStack(Material.DIAMOND), 1.2D);
-        // 下界合金动力铁轨：10倍速，maxSpeed = 10 * 0.4 = 4.0 喵~
-        registerVanilla(Items.NETHERITE_POWERED_RAIL, new ItemStack(Material.NETHERITE_INGOT), 4.0D);
+        // 铜质：0.5x，目标4b/s，extraAccel=0.13喵~
+        registerVanilla(Items.COPPER_POWERED_RAIL, new ItemStack(Material.COPPER_INGOT), 0.2D, 0.13D);
+        // 铁质：0.8x，目标6.4b/s，extraAccel=0.21喵~
+        registerVanilla(Items.IRON_POWERED_RAIL, new ItemStack(Material.IRON_INGOT), 0.32D, 0.21D);
+        // 金质：1.1x，目标8.8b/s，extraAccel=0.29喵~
+        registerVanilla(Items.GOLD_POWERED_RAIL, new ItemStack(Material.GOLD_INGOT), 0.44D, 0.29D);
+        // 钻石：3x，目标24b/s，extraAccel=0.80喵~
+        registerVanilla(Items.DIAMOND_POWERED_RAIL, new ItemStack(Material.DIAMOND), 1.2D, 0.80D);
+        // 下界合金：10x，目标80b/s，extraAccel=2.67喵~
+        registerVanilla(Items.NETHERITE_POWERED_RAIL, new ItemStack(Material.NETHERITE_INGOT), 4.0D, 2.67D);
 
-        // 钢制动力铁轨：1.25倍速，maxSpeed = 1.25 * 0.4 = 0.5 喵~
-        registerSlimefun(Items.STEEL_POWERED_RAIL, SlimefunItems.STEEL_INGOT, 0.5D);
-        // 大马士革钢动力铁轨：2倍速，maxSpeed = 2 * 0.4 = 0.8 喵~
-        registerSlimefun(Items.DAMASCUS_STEEL_POWERED_RAIL, SlimefunItems.DAMASCUS_STEEL_INGOT, 0.8D);
-        // 硬化金属动力铁轨：4倍速，maxSpeed = 4 * 0.4 = 1.6 喵~
-        registerSlimefun(Items.HARDENED_METAL_POWERED_RAIL, SlimefunItems.HARDENED_METAL_INGOT, 1.6D);
-        // 强化合金动力铁轨：6倍速，maxSpeed = 6 * 0.4 = 2.4 喵~
-        registerSlimefun(Items.REINFORCED_ALLOY_POWERED_RAIL, SlimefunItems.REINFORCED_ALLOY_INGOT, 2.4D);
-        // 黑金动力铁轨：10倍速，maxSpeed = 10 * 0.4 = 4.0 喵~
-        registerSlimefun(Items.CARBONADO_POWERED_RAIL, SlimefunItems.CARBONADO, 4.0D);
+        // 钢制：1.25x，目标10b/s，extraAccel=0.33喵~
+        registerSlimefun(Items.STEEL_POWERED_RAIL, SlimefunItems.STEEL_INGOT, 0.5D, 0.33D);
+        // 大马士革钢：2x，目标16b/s，extraAccel=0.53喵~
+        registerSlimefun(Items.DAMASCUS_STEEL_POWERED_RAIL, SlimefunItems.DAMASCUS_STEEL_INGOT, 0.8D, 0.53D);
+        // 硬化金属：4x，目标32b/s，extraAccel=1.07喵~
+        registerSlimefun(Items.HARDENED_METAL_POWERED_RAIL, SlimefunItems.HARDENED_METAL_INGOT, 1.6D, 1.07D);
+        // 强化合金：6x，目标48b/s，extraAccel=1.60喵~
+        registerSlimefun(Items.REINFORCED_ALLOY_POWERED_RAIL, SlimefunItems.REINFORCED_ALLOY_INGOT, 2.4D, 1.60D);
+        // 黑金刚石：10x，目标80b/s，extraAccel=2.67喵~
+        registerSlimefun(Items.CARBONADO_POWERED_RAIL, SlimefunItems.CARBONADO, 4.0D, 2.67D);
     }
 
-    private void registerVanilla(SlimefunItemStack item, ItemStack material, double maxSpeed) {
+    private void registerVanilla(SlimefunItemStack item, ItemStack material, double maxSpeed, double extraAccel) {
         new BetterRail(Items.VANILLA_ITEM_GROUP, item, new ItemStack[] {
                 material, material, material,
                 material, new ItemStack(Material.POWERED_RAIL), material,
                 material, material, material
-        }, 4, maxSpeed).register(BetterRails.getInstance());
+        }, 4, maxSpeed, extraAccel).register(BetterRails.getInstance());
     }
 
-    private void registerSlimefun(SlimefunItemStack item, ItemStack material, double maxSpeed) {
+    private void registerSlimefun(SlimefunItemStack item, ItemStack material, double maxSpeed, double extraAccel) {
         new BetterRail(Items.SLIMEFUN_ITEM_GROUP, item, new ItemStack[] {
                 material, SlimefunItems.COPPER_WIRE, material,
                 material, SlimefunItems.ELECTRO_MAGNET, material,
                 material, SlimefunItems.COPPER_WIRE, material
-        }, 4, maxSpeed).register(BetterRails.getInstance());
+        }, 4, maxSpeed, extraAccel).register(BetterRails.getInstance());
     }
 }
