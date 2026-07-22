@@ -17,11 +17,16 @@ final class ItemSetup {
 
         initialised = true;
 
-        registerVanilla(Items.COPPER_POWERED_RAIL, new ItemStack(Material.COPPER_INGOT), 0.8D);
-        registerVanilla(Items.IRON_POWERED_RAIL, new ItemStack(Material.IRON_INGOT), 1.2D);
-        registerVanilla(Items.GOLD_POWERED_RAIL, new ItemStack(Material.GOLD_INGOT), 1.6D);
-        registerVanilla(Items.DIAMOND_POWERED_RAIL, new ItemStack(Material.DIAMOND), 2.0D);
-        registerVanilla(Items.NETHERITE_POWERED_RAIL, new ItemStack(Material.NETHERITE_INGOT), 2.4D);
+        // 铜质动力铁轨：0.75倍速，maxSpeed = 0.75 * 0.4 = 0.3 喵~
+        registerVanilla(Items.COPPER_POWERED_RAIL, new ItemStack(Material.COPPER_INGOT), 0.3D);
+        // 铁质动力铁轨：1倍速，maxSpeed = 1.0 * 0.4 = 0.4，与原版相同喵~
+        registerVanilla(Items.IRON_POWERED_RAIL, new ItemStack(Material.IRON_INGOT), 0.4D);
+        // 金质动力铁轨：1.25倍速，maxSpeed = 1.25 * 0.4 = 0.5 喵~
+        registerVanilla(Items.GOLD_POWERED_RAIL, new ItemStack(Material.GOLD_INGOT), 0.5D);
+        // 钻石动力铁轨：4倍速，maxSpeed = 4 * 0.4 = 1.6 喵~
+        registerVanilla(Items.DIAMOND_POWERED_RAIL, new ItemStack(Material.DIAMOND), 1.6D);
+        // 下界合金动力铁轨：15倍速，maxSpeed = 15 * 0.4 = 6.0 喵~
+        registerVanilla(Items.NETHERITE_POWERED_RAIL, new ItemStack(Material.NETHERITE_INGOT), 6.0D);
 
         registerSlimefun(Items.STEEL_POWERED_RAIL, SlimefunItems.STEEL_INGOT, 0.8D);
         registerSlimefun(Items.DAMASCUS_STEEL_POWERED_RAIL, SlimefunItems.DAMASCUS_STEEL_INGOT, 1.2D);
