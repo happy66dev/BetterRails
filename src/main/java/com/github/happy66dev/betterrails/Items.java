@@ -26,26 +26,22 @@ public final class Items {
             new CustomItemStack(Material.POWERED_RAIL, "&b更好的铁轨（合金）")
     );
 
-    // 铜质：目标5b/s喵~
-    public static final SlimefunItemStack COPPER_POWERED_RAIL = poweredRail("COPPER_POWERED_RAIL", "&6铜质动力铁轨", "5");
-    // 铁质：目标8b/s喵~
-    public static final SlimefunItemStack IRON_POWERED_RAIL = poweredRail("IRON_POWERED_RAIL", "&f铁质动力铁轨", "8");
-    // 金质：目标18b/s喵~
-    public static final SlimefunItemStack GOLD_POWERED_RAIL = poweredRail("GOLD_POWERED_RAIL", "&e金质动力铁轨", "18");
-    // 钻石：目标40b/s，超过20b/s有警告喵~
-    public static final SlimefunItemStack DIAMOND_POWERED_RAIL = poweredRailWithWarning("DIAMOND_POWERED_RAIL", "&b钻石动力铁轨", "40");
-    // 下界合金：目标108b/s，超过20b/s有警告喵~
-    public static final SlimefunItemStack NETHERITE_POWERED_RAIL = poweredRailWithWarning("NETHERITE_POWERED_RAIL", "&8下界合金动力铁轨", "108");
-    // 钢制：目标16b/s喵~
-    public static final SlimefunItemStack STEEL_POWERED_RAIL = poweredRail("STEEL_POWERED_RAIL", "&7钢制动力铁轨", "16");
-    // 大马士革钢：目标24b/s，超过20b/s有警告喵~
-    public static final SlimefunItemStack DAMASCUS_STEEL_POWERED_RAIL = poweredRailWithWarning("DAMASCUS_STEEL_POWERED_RAIL", "&7大马士革钢动力铁轨", "24");
-    // 硬化金属：目标48b/s，超过20b/s有警告喵~
-    public static final SlimefunItemStack HARDENED_METAL_POWERED_RAIL = poweredRailWithWarning("HARDENED_METAL_POWERED_RAIL", "&8硬化金属动力铁轨", "48");
-    // 强化合金：目标60b/s，超过20b/s有警告喵~
-    public static final SlimefunItemStack REINFORCED_ALLOY_POWERED_RAIL = poweredRailWithWarning("REINFORCED_ALLOY_POWERED_RAIL", "&9强化合金动力铁轨", "60");
-    // 黑金刚石：目标100b/s，超过20b/s有警告喵~
-    public static final SlimefunItemStack CARBONADO_POWERED_RAIL = poweredRailWithWarning("CARBONADO_POWERED_RAIL", "&8黑金动力铁轨", "100");
+    // 铜质：目标4b/s喵~
+    public static final SlimefunItemStack COPPER_POWERED_RAIL = poweredRail("COPPER_POWERED_RAIL", "&6铜质动力铁轨", "4");
+    // 铁质：目标6b/s喵~
+    public static final SlimefunItemStack IRON_POWERED_RAIL = poweredRail("IRON_POWERED_RAIL", "&f铁质动力铁轨", "6");
+    // 金质：目标12b/s喵~
+    public static final SlimefunItemStack GOLD_POWERED_RAIL = poweredRail("GOLD_POWERED_RAIL", "&e金质动力铁轨", "12");
+    // 钻石：目标30b/s，超过20b/s有警告喵~
+    public static final SlimefunItemStack DIAMOND_POWERED_RAIL = poweredRailWithWarning("DIAMOND_POWERED_RAIL", "&b钻石动力铁轨", "30");
+    // 钢制：目标10b/s喵~
+    public static final SlimefunItemStack STEEL_POWERED_RAIL = poweredRail("STEEL_POWERED_RAIL", "&7钢制动力铁轨", "10");
+    // 大马士革钢：目标14b/s喵~
+    public static final SlimefunItemStack DAMASCUS_STEEL_POWERED_RAIL = poweredRail("DAMASCUS_STEEL_POWERED_RAIL", "&7大马士革钢动力铁轨", "14");
+    // 硬化金属：目标24b/s，超过20b/s有警告喵~
+    public static final SlimefunItemStack HARDENED_METAL_POWERED_RAIL = poweredRailWithWarning("HARDENED_METAL_POWERED_RAIL", "&8硬化金属动力铁轨", "24");
+    // 强化合金：目标30b/s，超过20b/s有警告喵~
+    public static final SlimefunItemStack REINFORCED_ALLOY_POWERED_RAIL = poweredRailWithWarning("REINFORCED_ALLOY_POWERED_RAIL", "&9强化合金动力铁轨", "30");
 
     private Items() {}
 
