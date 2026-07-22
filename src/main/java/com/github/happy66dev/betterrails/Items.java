@@ -36,16 +36,16 @@ public final class Items {
     public static final SlimefunItemStack DIAMOND_POWERED_RAIL = poweredRail("DIAMOND_POWERED_RAIL", "&b钻石动力铁轨", "4");
     // 下界合金：15倍速喵~
     public static final SlimefunItemStack NETHERITE_POWERED_RAIL = poweredRail("NETHERITE_POWERED_RAIL", "&8下界合金动力铁轨", "15");
-    // 钢制：2倍速喵~
-    public static final SlimefunItemStack STEEL_POWERED_RAIL = poweredRail("STEEL_POWERED_RAIL", "&7钢制动力铁轨", "2");
-    // 大马士革钢：3倍速喵~
-    public static final SlimefunItemStack DAMASCUS_STEEL_POWERED_RAIL = poweredRail("DAMASCUS_STEEL_POWERED_RAIL", "&7大马士革钢动力铁轨", "3");
-    // 硬化金属：4倍速喵~
-    public static final SlimefunItemStack HARDENED_METAL_POWERED_RAIL = poweredRail("HARDENED_METAL_POWERED_RAIL", "&8硬化金属动力铁轨", "4");
-    // 强化合金：5倍速喵~
-    public static final SlimefunItemStack REINFORCED_ALLOY_POWERED_RAIL = poweredRail("REINFORCED_ALLOY_POWERED_RAIL", "&9强化合金动力铁轨", "5");
-    // 黑金：6倍速喵~
-    public static final SlimefunItemStack CARBONADO_POWERED_RAIL = poweredRail("CARBONADO_POWERED_RAIL", "&8黑金动力铁轨", "6");
+    // 钢制：3倍速喵~
+    public static final SlimefunItemStack STEEL_POWERED_RAIL = poweredRail("STEEL_POWERED_RAIL", "&7钢制动力铁轨", "3");
+    // 大马士革钢：4倍速喵~
+    public static final SlimefunItemStack DAMASCUS_STEEL_POWERED_RAIL = poweredRail("DAMASCUS_STEEL_POWERED_RAIL", "&7大马士革钢动力铁轨", "4");
+    // 硬化金属：8倍速喵~
+    public static final SlimefunItemStack HARDENED_METAL_POWERED_RAIL = poweredRail("HARDENED_METAL_POWERED_RAIL", "&8硬化金属动力铁轨", "8");
+    // 强化合金：12倍速喵~
+    public static final SlimefunItemStack REINFORCED_ALLOY_POWERED_RAIL = poweredRail("REINFORCED_ALLOY_POWERED_RAIL", "&9强化合金动力铁轨", "12");
+    // 黑金刚石：20倍速喵~
+    public static final SlimefunItemStack CARBONADO_POWERED_RAIL = poweredRail("CARBONADO_POWERED_RAIL", "&8黑金动力铁轨", "20");
 
     private Items() {}
 
